@@ -1,0 +1,1 @@
+BOARD_FILE_PATH = "data/board.json"

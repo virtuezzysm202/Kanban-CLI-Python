@@ -1,0 +1,16 @@
+{
+    "columns": {
+        "To Do": [
+            {
+                "title": "project 1",
+                "description": "my project"
+            },
+            {
+                "title": "kanban-project",
+                "description": "my project"
+            }
+        ],
+        "In Progress": [],
+        "Done": []
+    }
+}
