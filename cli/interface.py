@@ -1,5 +1,5 @@
 # cli/interface.py
-from cli.commands import add_task, list_tasks, move_task
+from cli.commands import add_task, list_tasks, move_task, delete_task
 
 def run_menu():
     while True:
@@ -19,8 +19,7 @@ def run_menu():
         elif choice == '3':
             move_task()
         elif choice == '4':
-            print("Task Deleted")
-            break
+            delete_task()
         elif choice == '5': 
             print("Goodbye")
         else:

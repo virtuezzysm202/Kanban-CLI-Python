@@ -25,9 +25,9 @@ def move_task():
 def delete_task():
     board = load_board(BOARD_FILE_PATH)
     column = input("Enter column name (To Do / In Progress / Done): ")
-    title = input("Enter the title of the task you want to delete: ")
-    if board.delete_task_from_column(column, title):
+    task_id = input("Enter Task Id of the task you want to delete: ")
+    if board.delete_task_from_column(column, task_id):
         save_board(board, BOARD_FILE_PATH)
-        print(f"Task '{title}' in column '{column}' successfully deleted.")
+        print(f"Task '{task_id}' in column '{column}' successfully deleted.")
     else:
         print("Failed to delete task.")
