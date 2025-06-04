@@ -1,6 +1,8 @@
 import json
 from core.board import Board
 
+
+
 def load_board(file_path):
     try:
         with open(file_path, "r") as f:

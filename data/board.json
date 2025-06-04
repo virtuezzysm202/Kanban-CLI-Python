@@ -8,6 +8,11 @@
             {
                 "title": "kanban-project",
                 "description": "my project"
+            },
+            {
+                "id": "1",
+                "title": "Testing",
+                "description": "test1"
             }
         ],
         "In Progress": [],

@@ -1,6 +1,8 @@
 from core.board import Board
 from core.storage import load_board, save_board
 from core.config import BOARD_FILE_PATH
+from rich.table import Table
+from rich.console import Console
 
 def add_task():
     board = load_board(BOARD_FILE_PATH)
@@ -12,7 +14,7 @@ def add_task():
 
 def list_tasks():
     board = load_board(BOARD_FILE_PATH)
-    board.display()
+    display_board_rich(board)
 
 def move_task():
     board = load_board(BOARD_FILE_PATH)
@@ -31,3 +33,23 @@ def delete_task():
         print(f"Task '{task_id}' in column '{column}' successfully deleted.")
     else:
         print("Failed to delete task.")
+
+def display_board_rich(board):
+    console = Console()
+    console.print("\n[bold cyan]=== KANBAN BOARD ===[/bold cyan]")
+
+    for column, tasks in board.columns.items():
+        table = Table(title=f"[bold magenta]{column}[/bold magenta]")
+
+        table.add_column("ID", style="cyan", no_wrap=True)
+        table.add_column("Title", style="green")
+        table.add_column("Description", style="white")
+
+        for task in tasks:
+            task_id = task.get("id", "-")
+            title = task.get("title", "")
+            desc = task.get("description", "")
+            table.add_row(str(task_id), title, desc)
+
+        console.print(table)
+
